@@ -1,3 +1,4 @@
-/compiler-lexical-analyzer/
-!/compiler-lexical-analyzer/compiler-lexical-analyzer/*.cpp
-!/compiler-lexical-analyzer/compiler-lexical-analyzer/*.h
+!compiler-lexical-analyzer/
+compiler-lexical-analyzer/*
+!compiler-lexical-analyzer/compiler-lexical-analyzer/*.cpp
+!compiler-lexical-analyzer/compiler-lexical-analyzer/*.h
