@@ -1,0 +1,24 @@
+<TYPE, boolean>
+<ID, isOld>
+<LPAREN>
+<TYPE, int>
+<ID, hakbeon>
+<RPAREN>
+<LBRACE>
+<IF>
+<LPAREN>
+<ID, hakbeon>
+<COMPARE, <=>
+<NUMBER, 17>
+<RPAREN>
+<LBRACE>
+<RETURN>
+<BOOLEAN, true>
+<SEMICOLON>
+<RBRACE>
+<ELSE>
+<LBRACE>
+<RETURN>
+<ID, false>
+<SEMICOLON>
+<RBRACE>

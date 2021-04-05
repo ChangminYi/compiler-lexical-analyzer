@@ -1,0 +1,8 @@
+boolean isOld(int hakbeon){
+	if(hakbeon <= 17){
+		return true;
+	}
+	else{
+		return false;
+	}
+}

@@ -1,14 +1,25 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <fstream>
 #include "token.h"
 #include "table_init.h"
 #include "lexeme_mapping.h"
 
 using namespace std;
 
-int main(int argc, char *argv[]){
+int main(int argc, char** argv){
 	/*main에서 인자 받아오기 만들어야 됨*/
+	if(argc != 2){
+		cerr << "Invalid number of argument";
+		exit(-1);
+	}
+
+	ifstream input_f(argv[1]);
+	if(input_f.fail()){
+		cerr << "Cannot find " << argv[1];
+		exit(-1);
+	}
 
 	//initializing of DFA transition table and finishing state table
 	vector<vector<int>> dfa_table = getTransitionTable();
@@ -18,7 +29,7 @@ int main(int argc, char *argv[]){
 	string temp_input;		//토큰 내용 받는 문자열
 	char in_stream = 0;		//입력 char
 	int current_state = 0;		//start state is 0
-	while ((in_stream = getchar()) != EOF) {		//ctrl+z 들어올 때까지 입력 받음
+	while (input_f.get(in_stream)) {		//ctrl+z 들어올 때까지 입력 받음
 		int row_togo = get_transit_row(in_stream);	//입력에 맞는 transition table의 column 번호
 		
 		if (row_togo == UNAVAILABLE_INPUT_CHAR) {
@@ -63,13 +74,16 @@ int main(int argc, char *argv[]){
 			}
 		}
 	}
+	input_f.close();
 
-	//테스트
+	ofstream output_f("output.txt");
 	for (Token &t : tokens) {
 		if (t.type != WSPACE) {
-			cout << t << '\n';
+			output_f << t << '\n';
 		}
 	}
+	output_f.close();
 
+	system("pause");
     return 0;
 }
