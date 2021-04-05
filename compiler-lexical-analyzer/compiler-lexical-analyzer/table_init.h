@@ -1,5 +1,5 @@
 #include <vector>
-#include "token.h"
+//#include "token.h"
 
 #ifndef TABLE_INIT
 #define TABLE_INIT

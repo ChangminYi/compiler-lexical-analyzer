@@ -37,14 +37,13 @@ int main(int argc, char *argv[]){
 				//현재 input에 맞게 state 다시 설정
 				temp_input.clear();
 				temp_input.push_back(in_stream);
-				current_state = dfa_table[0][row_togo];
+				current_state = dfa_table.front()[row_togo];
 			}
 			else {
 				//문자열에 입력 추가하고 계속 진행
 				temp_input.push_back(in_stream);
+				current_state = new_state;
 			}
-
-			current_state = new_state;
 		}
 	}
 

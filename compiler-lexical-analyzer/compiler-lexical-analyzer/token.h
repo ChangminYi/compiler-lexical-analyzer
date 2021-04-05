@@ -3,7 +3,7 @@
 using namespace std;
 
 #ifndef TOKEN_H
-#define TOEKN_H
+#define TOKEN_H
 
 enum TOKEN_TYPE
 {
