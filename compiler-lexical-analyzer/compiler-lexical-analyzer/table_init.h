@@ -1,4 +1,5 @@
 #include <vector>
+#include "token.h"
 
 #ifndef TABLE_INIT
 #define TABLE_INIT
@@ -10,5 +11,6 @@
 using namespace std;
 
 vector<vector<int>> getTransitionTable();
+
 
 #endif
