@@ -45,3 +45,4 @@
 *.filters
 *.user
 .vscode/
+~$DFA_Transition_Table.xlsx
