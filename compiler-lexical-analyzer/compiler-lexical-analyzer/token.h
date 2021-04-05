@@ -16,7 +16,9 @@ enum TOKEN_TYPE
     LBRACE, RBRACE,
     LBRACKET, RBRACKET,
     COMMA, SEMICOLON,
-    WSPACE
+    WSPACE,
+    CLASS,
+    OPER
 };
 
 const char *token_str[] = 
@@ -30,7 +32,9 @@ const char *token_str[] =
     "LBRACE", "RBRACE",
     "LBRACKET", "RBRACKET",
     "COMMA", "SEMICOLON",
-    "WSPACE"
+    "WSPACE",
+    "CLASS",
+    "OPER"
 };
 
 class Token{

@@ -16,3 +16,14 @@ std::vector<std::vector<int>> getTransitionTable() {
 	f_in.close();
 	return table;
 }
+
+std::vector<int> getFinishStateReturn(){
+	std::vector<int> finish_type(ROW);
+	std::ifstream f_in("finish_state_return.txt");
+	if (f_in.is_open()) {
+		for (int &i : finish_type) {
+			f_in >> i;
+		}
+	}
+	return finish_type;
+}

@@ -10,5 +10,6 @@
 using namespace std;
 
 vector<vector<int>> getTransitionTable();
+vector<int> getFinishStateReturn();
 
 #endif
