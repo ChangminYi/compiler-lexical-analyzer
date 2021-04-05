@@ -1,4 +1,6 @@
 #include <string>
+#include <iostream>
+using namespace std;
 
 #ifndef TOKEN_H
 #define TOEKN_H
@@ -34,13 +36,15 @@ const char *token_str[] =
 class Token{
 public:
     TOKEN_TYPE type;
-    std::string value;
+    string value;
+	Token() {};
     Token(TOKEN_TYPE t, string v): type(t), value(v) {};
     friend ostream& operator<<(ostream& os, const Token& token);
 };
 
 ostream& operator<<(ostream& os, const Token& token){
     os << "<" << token_str[token.type] << ", " << token.value << ">";
+	return os;
 }
 
 #endif
