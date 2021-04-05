@@ -1,5 +1,4 @@
 #include <iostream>
-//#include <fstream>
 #include <vector>
 #include <string>
 #include "token.h"
@@ -42,6 +41,9 @@ int main(int argc, char *argv[]){
 						if (!tokens.empty() && (tokens.back().type == NUMBER || tokens.back().type == ID)) {	//- 예외처리: 앞이 숫자나 id인 경우 operand -와 숫자로 나눠서 넣어줘야함
 							tokens.push_back(Token(OPER, "-"));
 							tokens.push_back(Token(NUMBER, temp_input.substr(1)));
+						}
+						else {
+							tokens.push_back(temp_token);
 						}
 					}
 					else {
