@@ -1,0 +1,41 @@
+<CLASS>
+<ID, Main>
+<LBRACE>
+<ID, void>
+<ID, main>
+<LPAREN>
+<TYPE, String>
+<ID, args>
+<RPAREN>
+<LBRACE>
+<ID, printf>
+<LPAREN>
+<STRING, hello world>
+<OPER, +>
+<ID, args>
+<RPAREN>
+<SEMICOLON>
+<TYPE, int>
+<ID, a>
+<ASSIGN>
+<NUMBER, 30>
+<OPER, ->
+<NUMBER, 1>
+<SEMICOLON>
+<IF>
+<LPAREN>
+<ID, a>
+<COMPARE, ==>
+<NUMBER, 0>
+<RPAREN>
+<LBRACE>
+<TYPE, boolean>
+<ID, b>
+<ASSIGN>
+<BOOLEAN, true>
+<SEMICOLON>
+<RBRACE>
+<RETURN>
+<SEMICOLON>
+<RBRACE>
+<RBRACE>

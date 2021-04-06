@@ -8,15 +8,14 @@
 
 using namespace std;
 
-int main(int argc, char** argv){
-	/*main에서 인자 받아오기 만들어야 됨*/
-	if(argc != 2){
+int main(int argc, char** argv) {
+	if (argc != 2) {
 		cerr << "Invalid number of argument";
 		exit(-1);
 	}
 
 	ifstream input_f(argv[1]);
-	if(input_f.fail()){
+	if (input_f.fail()) {
 		cerr << "Cannot find " << argv[1];
 		exit(-1);
 	}
@@ -31,7 +30,7 @@ int main(int argc, char** argv){
 	int current_state = 0;		//start state is 0
 	while (input_f.get(in_stream)) {		//ctrl+z 들어올 때까지 입력 받음
 		int row_togo = get_transit_row(in_stream);	//입력에 맞는 transition table의 column 번호
-		
+
 		if (row_togo == UNAVAILABLE_INPUT_CHAR) {
 			cerr << "there is unavailable input: " << in_stream;
 			break;
@@ -39,17 +38,18 @@ int main(int argc, char** argv){
 		else {
 			//입력에 맞는 새로운 state
 			int new_state = dfa_table[current_state][row_togo];
-			
-			if (new_state == NO_TRANSITION_RULE) {	//기존 state에서 transition rule이 없는 경우
 
+			//기존 state에서 transition rule이 없는 경우
+			if (new_state == NO_TRANSITION_RULE) {	
 				if (finish_state_match[current_state] == NON_FINISHING_STATE) {
 					cerr << "this is not terminal state";
 				}
 				else {
 					Token temp_token = Token(static_cast<TOKEN_TYPE>(finish_state_match[current_state]), temp_input);
 
+					//- 예외처리: 앞이 숫자나 id인 경우 operand -와 숫자로 나눠서 넣어줘야함
 					if (temp_token.type == NUMBER && temp_token.value.front() == '-') {
-						if (!tokens.empty() && (tokens.back().type == NUMBER || tokens.back().type == ID)) {	//- 예외처리: 앞이 숫자나 id인 경우 operand -와 숫자로 나눠서 넣어줘야함
+						if (!tokens.empty() && (tokens.back().type == NUMBER || tokens.back().type == ID)) {	
 							tokens.push_back(Token(OPER, "-"));
 							tokens.push_back(Token(NUMBER, temp_input.substr(1)));
 						}
@@ -58,7 +58,9 @@ int main(int argc, char** argv){
 						}
 					}
 					else {
-						tokens.push_back(temp_token);
+						if (temp_token.type != WSPACE) {
+							tokens.push_back(temp_token);
+						}
 					}
 
 					//현재 input에 맞게 state 다시 설정
@@ -74,16 +76,39 @@ int main(int argc, char** argv){
 			}
 		}
 	}
+	if (!temp_input.empty()) {	//마지막 토큰 받아옴: while문 안의 코드와 같음
+		if (finish_state_match[current_state] == NON_FINISHING_STATE) {
+			cerr << "this is not terminal state";
+		}
+		else {
+			Token temp_token = Token(static_cast<TOKEN_TYPE>(finish_state_match[current_state]), temp_input);
+
+			if (temp_token.type == NUMBER && temp_token.value.front() == '-') {
+				if (!tokens.empty() && (tokens.back().type == NUMBER || tokens.back().type == ID)) {	
+					tokens.push_back(Token(OPER, "-"));
+					tokens.push_back(Token(NUMBER, temp_input.substr(1)));
+				}
+				else {
+					tokens.push_back(temp_token);
+				}
+			}
+			else {
+				if (temp_token.type != WSPACE) {
+					tokens.push_back(temp_token);
+				}
+			}
+		}
+	}
+
+	//input stream 닫기
 	input_f.close();
 
 	ofstream output_f("output.txt");
 	for (Token &t : tokens) {
-		if (t.type != WSPACE) {
-			output_f << t << '\n';
-		}
+		output_f << t << '\n';
 	}
 	output_f.close();
 
-	system("pause");
-    return 0;
+	//system("pause");
+	return 0;
 }

@@ -1,0 +1,8 @@
+class Main {
+	void main(String args){
+		printf("args");
+		int a = 30-1;
+		if(a==0){boolean b = false;}
+		return;
+	}
+}
