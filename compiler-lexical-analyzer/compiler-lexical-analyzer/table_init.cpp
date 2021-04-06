@@ -1,5 +1,6 @@
 #include "table_init.h"
 #include <fstream>
+#include <iostream>
 
 std::vector<std::vector<int>> getTransitionTable() {
 	std::vector<std::vector<int>> table(ROW, std::vector<int>(COL));
@@ -11,6 +12,10 @@ std::vector<std::vector<int>> getTransitionTable() {
 				f_in >> j;
 			}
 		}
+	}
+	else {
+		cerr << "there is no dfa_transition_table.txt in directory";
+		exit(-1);
 	}
 	
 	f_in.close();
@@ -24,6 +29,10 @@ std::vector<int> getFinishStateReturn(){
 		for (int &i : finish_type) {
 			f_in >> i;
 		}
+	}
+	else {
+		cerr << "there is no finish_state_return.txt in directory";
+		exit(-1);
 	}
 	return finish_type;
 }

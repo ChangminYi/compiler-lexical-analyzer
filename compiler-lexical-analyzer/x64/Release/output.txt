@@ -1,7 +1,7 @@
 <CLASS>
 <ID, Main>
 <LBRACE>
-<ID, void>
+<TYPE, int>
 <ID, main>
 <LPAREN>
 <TYPE, String>
@@ -32,10 +32,11 @@
 <TYPE, boolean>
 <ID, b>
 <ASSIGN>
-<BOOLEAN, true>
+<BOOLEAN, false>
 <SEMICOLON>
 <RBRACE>
 <RETURN>
+<NUMBER, 0>
 <SEMICOLON>
 <RBRACE>
 <RBRACE>

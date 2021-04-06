@@ -1,8 +1,8 @@
 class Main {
-	void main(String args){
+	int main(String args){
 		printf("hello world" + args);
 		int a = 30-1;
-		if(a==0){boolean b = true;}
-		return;
+		if(a==0){boolean b = false;}
+		return 0;
 	}
 }

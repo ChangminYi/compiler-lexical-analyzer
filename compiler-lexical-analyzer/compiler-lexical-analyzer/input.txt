@@ -1,8 +1,13 @@
-boolean isOld(int hakbeon){
-	if(hakbeon <= 17){
-		return true;
-	}
-	else{
-		return false;
+class Main{
+	int main(String args[]){
+		int i = 0;
+		while(i < 10){
+			printf(args[i]);
+			i=i+1;
+		}		
+		boolean t = false;
+		if(t){
+			return -1;
+		}
 	}
 }

@@ -1,25 +1,55 @@
-<TYPE, boolean>
-<ID, isOld>
-<LPAREN>
+<CLASS>
+<ID, Main>
+<LBRACE>
 <TYPE, int>
-<ID, hakbeon>
-<RPAREN>
-<LBRACE>
-<IF>
+<ID, main>
 <LPAREN>
-<ID, hakbeon>
-<COMPARE, <=>
-<NUMBER, 17>
+<TYPE, String>
+<ID, args>
+<LBRACKET>
+<RBRACKET>
 <RPAREN>
 <LBRACE>
-<RETURN>
-<BOOLEAN, true>
+<TYPE, int>
+<ID, i>
+<ASSIGN>
+<NUMBER, 0>
+<SEMICOLON>
+<WHILE>
+<LPAREN>
+<ID, i>
+<COMPARE, <>
+<NUMBER, 10>
+<RPAREN>
+<LBRACE>
+<ID, printf>
+<LPAREN>
+<ID, args>
+<LBRACKET>
+<ID, i>
+<RBRACKET>
+<RPAREN>
+<SEMICOLON>
+<ID, i>
+<ASSIGN>
+<ID, i>
+<OPER, +>
+<NUMBER, 1>
 <SEMICOLON>
 <RBRACE>
-<ELSE>
+<TYPE, boolean>
+<ID, t>
+<ASSIGN>
+<BOOLEAN, false>
+<SEMICOLON>
+<IF>
+<LPAREN>
+<ID, t>
+<RPAREN>
 <LBRACE>
 <RETURN>
-<ID, false>
+<NUMBER, -1>
 <SEMICOLON>
+<RBRACE>
 <RBRACE>
 <RBRACE>
