@@ -22,6 +22,7 @@ int get_transit_row(char input_lexeme) {
 		case '*': return 65;
 		case '/': return 66;
 		case '\t': return 67;
+		case '\r':
 		case '\n': return 68;
 		case ' ': return 69;
 		case '\'': return 70;
