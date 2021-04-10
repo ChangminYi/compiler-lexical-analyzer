@@ -1,21 +1,21 @@
-#include "lexeme_mapping.h"
+#include "character_mapping.h"
 
-int get_transit_row(char input_lexeme) {
+int get_transit_row(char input_character) {
 	// 0 ~ 9: 10개 (return 0 ~ 9)
-	if (isdigit(input_lexeme)) {
-		return input_lexeme - '0';
+	if (isdigit(input_character)) {
+		return input_character - '0';
 	}
 	// a ~ z: 26개 (returns 10 ~ 35)
-	else if (islower(input_lexeme)) {
-		return 10 + (input_lexeme - 'a');
+	else if (islower(input_character)) {
+		return 10 + (input_character - 'a');
 	}
 	// A ~ Z: 26개 (returns 36 ~ 61)
-	else if (isupper(input_lexeme)) {
-		return 36 + (input_lexeme - 'A');
+	else if (isupper(input_character)) {
+		return 36 + (input_character - 'A');
 	}
 	// 62 ~ : 나머지 연산자 및 기호들
 	else {
-		switch (input_lexeme) {
+		switch (input_character) {
 		case '_': return 62;
 		case '+': return 63;
 		case '-': return 64;

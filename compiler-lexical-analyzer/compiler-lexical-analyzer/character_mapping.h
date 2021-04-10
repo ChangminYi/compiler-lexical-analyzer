@@ -1,6 +1,6 @@
 
-#ifndef LEXEME_MAPPING
-#define LEXEME_MAPPING
+#ifndef CHARACTER_MAPPING
+#define CHARACTER_MAPPING
 
 #include <cctype>
 
@@ -9,7 +9,7 @@
 
 
 // 입력 가능한 문자이면 transition table의 column 번호 반환, 없는 문자이면 UNAVAILABLE_INPUT_CHAR 반환.
-int get_transit_row(char input_lexeme);
+int get_transit_row(char input_character);
 
 
 #endif

@@ -4,7 +4,7 @@
 #include <fstream>
 #include "token.h"
 #include "table_init.h"
-#include "lexeme_mapping.h"
+#include "character_mapping.h"
 
 using namespace std;
 
