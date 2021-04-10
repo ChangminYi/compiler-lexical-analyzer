@@ -19,7 +19,7 @@ void writeOutputFile(vector<Token> &argt);
 
 int main(int argc, char** argv) {
 	if (argc != 2) {
-		std::cerr << "Invalid number of argument";
+		std::cerr << "Invalid number of argument" << '\n';
 		exit(-1);
 	}
 
@@ -53,7 +53,7 @@ void recognizeToken(Token &token, vector<Token> &token_set) {
 vector<Token> lexicalAnalyze(char *argv) {
 	ifstream input_f(argv);
 	if (input_f.fail()) {
-		std::cerr << "Cannot find " << argv;
+		std::cerr << "Cannot find " << argv << '\n';
 		exit(-1);
 	}
 
@@ -73,7 +73,7 @@ vector<Token> lexicalAnalyze(char *argv) {
 		int row_togo = get_transit_row(in_stream);	//입력에 맞는 transition table의 column 번호
 
 		if (row_togo == UNAVAILABLE_INPUT_CHAR) {	//인식 불가능한 문자를 받았을 때: 에러 출력 후 종료
-			std::cerr << "line " << line_cnt << ") there is unavailable input: \'" << in_stream << '\'';
+			std::cerr << "line " << line_cnt << ") there is unavailable input: \'" << in_stream << '\'' << '\n';
 			exit(-1);
 		}
 		else {
@@ -83,7 +83,7 @@ vector<Token> lexicalAnalyze(char *argv) {
 			if (new_state == NO_TRANSITION_RULE) {
 				//기존 state에서 transition rule이 없는 경우: 에러 출력 후 종료 (ex: "hello;)
 				if (finish_state_match[current_state] == NON_FINISHING_STATE) {
-					std::cerr << "line " << line_cnt << ") this is not terminal state: " << temp_input;
+					std::cerr << "line " << line_cnt << ") this is not terminal state: " << temp_input << '\n';
 					exit(-1);
 				}
 				//terminal state에서 끝난 경우: 토큰 분류하고 다시 진행
@@ -107,7 +107,7 @@ vector<Token> lexicalAnalyze(char *argv) {
 	}
 	if (!temp_input.empty()) {	//마지막 토큰 받아옴: while문 안의 코드와 같음
 		if (finish_state_match[current_state] == NON_FINISHING_STATE) {
-			std::cerr << "line " << line_cnt << ") this is not terminal state: " << temp_input;
+			std::cerr << "line " << line_cnt << ") this is not terminal state: " << temp_input << '\n';
 			exit(-1);
 		}
 		else {
@@ -128,7 +128,7 @@ void writeOutputFile(vector<Token>& argt) {
 	}
 	output_f.close();
 
-	std::cout << "lexical analysis completed.";
+	std::cout << "lexical analysis completed." << '\n';
 
 	return;
 }

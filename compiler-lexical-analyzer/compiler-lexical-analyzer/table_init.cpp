@@ -14,7 +14,7 @@ std::vector<std::vector<int>> getTransitionTable() {
 		}
 	}
 	else {
-		std::cerr << "there is no dfa_transition_table.txt in directory";
+		std::cerr << "there is no dfa_transition_table.txt in directory" << '\n';
 		exit(-1);
 	}
 	
@@ -31,7 +31,7 @@ std::vector<int> getFinishStateReturn(){
 		}
 	}
 	else {
-		std::cerr << "there is no finish_state_return.txt in directory";
+		std::cerr << "there is no finish_state_return.txt in directory" << '\n';
 		exit(-1);
 	}
 	return finish_type;
