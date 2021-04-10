@@ -9,7 +9,7 @@
 using namespace std;
 
 //인식한 토큰 분류하여 저장하는 함수
-void recognizeToken(int current_state, string &recog_str, vector<Token> &token_Set, vector<vector<int>> &dfa_table, vector<int> &finish_state_table);
+void recognizeToken(Token &token, vector<Token> &token_set);
 
 //lexical analysis를 실행하여 토큰 리스트 반환
 vector<Token> lexicalAnalyze(char *argv);
@@ -30,22 +30,20 @@ int main(int argc, char** argv) {
 	return 0;
 }
 
-void recognizeToken(int current_state, string &recog_str, vector<Token> &token_Set, vector<vector<int>> &dfa_table, vector<int> &finish_state_table) {
-	Token temp_token = Token(static_cast<TOKEN_TYPE>(finish_state_table[current_state]), recog_str);
-
+void recognizeToken(Token &token, vector<Token> &token_set) {
 	//- 예외처리: 앞이 숫자나 id인 경우 operand -와 숫자로 나눠서 넣어줘야함
-	if (temp_token.type == NUMBER && temp_token.value.front() == '-') {
-		if (!token_Set.empty() && (token_Set.back().type == NUMBER || token_Set.back().type == ID)) {
-			token_Set.push_back(Token(OPER, "-"));
-			token_Set.push_back(Token(NUMBER, recog_str.substr(1)));
+	if (token.type == NUMBER && token.value.front() == '-') {
+		if (!token_set.empty() && (token_set.back().type == NUMBER || token_set.back().type == ID)) {
+			token_set.push_back(Token(OPER, "-"));
+			token_set.push_back(Token(NUMBER, token.value.substr(1)));
 		}
 		else {
-			token_Set.push_back(temp_token);
+			token_set.push_back(token);
 		}
 	}
 	else {
-		if (temp_token.type != WSPACE) {
-			token_Set.push_back(temp_token);
+		if (token.type != WSPACE) {
+			token_set.push_back(token);
 		}
 	}
 
@@ -91,7 +89,8 @@ vector<Token> lexicalAnalyze(char *argv) {
 				//terminal state에서 끝난 경우: 토큰 분류하고 다시 진행
 				else {
 					//토큰 분류
-					recognizeToken(current_state, temp_input, tokens, dfa_table, finish_state_match);
+					Token token = Token(static_cast<TOKEN_TYPE>(finish_state_match[current_state]), temp_input);
+					recognizeToken(token, tokens);
 
 					//현재 input에 맞게 state 다시 설정
 					temp_input.clear();
@@ -112,7 +111,8 @@ vector<Token> lexicalAnalyze(char *argv) {
 			exit(-1);
 		}
 		else {
-			recognizeToken(current_state, temp_input, tokens, dfa_table, finish_state_match);
+			Token token = Token(static_cast<TOKEN_TYPE>(finish_state_match[current_state]), temp_input);
+			recognizeToken(token, tokens);
 		}
 	}
 	//input stream 닫기
