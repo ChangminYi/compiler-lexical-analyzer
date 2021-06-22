@@ -4,52 +4,82 @@
 <TYPE, int>
 <ID, main>
 <LPAREN>
-<TYPE, String>
-<ID, args>
-<LBRACKET>
-<RBRACKET>
 <RPAREN>
 <LBRACE>
 <TYPE, int>
-<ID, i>
+<ID, _intValue21>
 <ASSIGN>
-<NUMBER, 0>
+<NUMBER, -4>
 <SEMICOLON>
-<WHILE>
+<TYPE, boolean>
+<ID, _booleanValue32>
+<ASSIGN>
+<BOOLEAN, false>
+<SEMICOLON>
+<TYPE, char>
+<ID, somethingElse>
+<ASSIGN>
+<CHAR, A>
+<SEMICOLON>
+<TYPE, String>
+<ID, helloworld>
+<ASSIGN>
+<STRING, Hello world>
+<SEMICOLON>
+<IF>
 <LPAREN>
-<ID, i>
-<COMPARE, <>
-<NUMBER, 10>
+<BOOLEAN, true>
+<COMPARE, ==>
+<BOOLEAN, true>
 <RPAREN>
 <LBRACE>
-<ID, printf>
-<LPAREN>
-<ID, args>
-<LBRACKET>
-<ID, i>
-<RBRACKET>
-<RPAREN>
-<SEMICOLON>
-<ID, i>
+<ID, _booleanValue32>
 <ASSIGN>
-<ID, i>
+<BOOLEAN, true>
+<SEMICOLON>
+<RBRACE>
+<ELSE>
+<LBRACE>
+<WHILE>
+<LPAREN>
+<BOOLEAN, false>
+<COMPARE, ==>
+<BOOLEAN, true>
+<RPAREN>
+<LBRACE>
+<ID, somethingElse>
+<ASSIGN>
+<ID, somethingElse>
 <OPER, +>
 <NUMBER, 1>
 <SEMICOLON>
 <RBRACE>
-<TYPE, boolean>
-<ID, t>
-<ASSIGN>
-<BOOLEAN, false>
+<RBRACE>
+<RETURN>
+<ID, a>
+<OPER, +>
+<NUMBER, 150>
 <SEMICOLON>
-<IF>
+<RBRACE>
+<RBRACE>
+<TYPE, int>
+<ID, global_var>
+<ASSIGN>
+<NUMBER, 3>
+<OPER, ->
+<NUMBER, 5>
+<SEMICOLON>
+<TYPE, String>
+<ID, getString>
 <LPAREN>
-<ID, t>
 <RPAREN>
 <LBRACE>
-<RETURN>
-<NUMBER, -1>
+<TYPE, String>
+<ID, str>
+<ASSIGN>
+<STRING, Bye World>
 <SEMICOLON>
-<RBRACE>
-<RBRACE>
+<RETURN>
+<ID, str>
+<SEMICOLON>
 <RBRACE>

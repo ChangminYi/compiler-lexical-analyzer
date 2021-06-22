@@ -1,13 +1,24 @@
-class Main{
-	int main(String args[]){
-		int i = 0;
-		while(i < 10){
-			printf(args[i]);
-			i=i+1;
-		}		
-		boolean t = false;
-		if(t){
-			return -1;
+class Main {
+	int main() {
+		int _intValue21 = -4;
+		boolean _booleanValue32 = false;
+		char somethingElse = 'A';
+		String helloworld = "Hello world";		
+
+		if(true == true){
+			_booleanValue32 = true;
 		}
+		else {
+			while(false == true) {
+				somethingElse = somethingElse + 1;
+			}
+		}
+
+		return a + 150;
 	}
+}
+int global_var = 3-5;
+String getString(){
+	String str = "Bye World";
+	return str;
 }
